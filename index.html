@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美式咖啡介紹 - 美式咖啡愛好者的最愛</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* 基本設置 */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* 頂部導航欄 */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 8px 18px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em; /* 調整字體大小 */
+            padding: 5px 12px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #9e5b3d;
+            transform: scale(1.1);
+        }
+
+        /* 首頁大圖區 */
+        .hero {
+            background-color: #9e5b3d;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;  /* 調整上部與下部內邊距 */
+            font-size: 1.8em;     /* 縮小字體 */
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 2.2em; /* 縮小標題字體大小 */
+            font-family: 'Lora', serif;
+        }
+
+        .hero p {
+            font-size: 1.1em; /* 縮小段落字體 */
+            margin-top: 15px;
+            font-family: 'Lora', serif;
+        }
+
+        /* 內容區域 */
+        .content {
+            padding: 60px 20px;
+            text-align: center; /* 讓文字內容居中 */
+            opacity: 0;
+            animation: fadeInContent 1.5s forwards;
+        }
+
+        @keyframes fadeInContent {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .content img {
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            margin: 20px 0;
+            opacity: 0;
+            animation: fadeInImg 1s ease-out forwards;
+        }
+
+        @keyframes fadeInImg {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .content h2 {
+            font-size: 2.5em;
+            color: #9e5b3d;
+            font-family: 'Lora', serif;
+            margin-bottom: 20px; /* 增加標題與段落的間距 */
+        }
+
+        .content p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: 'Lora', serif;
+        }
+
+        /* 製作方法區 */
+        #how-to-make {
+            background-color: #f9f9f9;
+            padding: 60px 20px;
+            text-align: center;  /* 讓標題和段落文字居中 */
+        }
+
+        ol {
+            text-align: left;
+            font-size: 1.1em;  /* 字體縮小 */
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        ol li {
+            margin: 15px 0;
+        }
+
+        /* 画廊區 */
+        #gallery {
+            padding: 60px 20px;
+            background-color: #fff;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .gallery img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeInGallery 1s forwards;
+        }
+
+        @keyframes fadeInGallery {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* 底部 */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-family: 'Lora', serif;
+            font-size: 1em;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導航欄 -->
+    <div class="navbar">
+        <a href="#">首頁</a>
+        <a href="#about">關於美式咖啡</a>
+        <a href="#how-to-make">如何製作</a>
+        <a href="#gallery">畫廊</a>
+    </div>
+
+    <!-- 首頁大圖 -->
+    <div class="hero">
+        <h1>歡迎來到美式咖啡的世界</h1>
+        <p>了解美式咖啡的歷史、風味及製作方法，讓我們一起深入探索這杯經典飲品！</p>
+    </div>
+
+    <!-- 內容區域 -->
+    <div id="about" class="content">
+        <h2>什麼是美式咖啡？</h2>
+        <p>美式濃縮咖啡（義大利語：Caffè Americano）是一種咖啡做法。一般由義式濃縮咖啡加入熱水製作而成。或者是用義式咖啡機製作，在萃取完了濃縮咖啡後，繼續讓機器供水直到一杯完整的咖啡。
+
+</p>
+        <img src="https://today-obs.line-scdn.net/0hgQy-4yKHOH5EVC8ahwFHKXwCNA93MiJ3ZjNxEDFVM0xoeCwtfmJrHWUHblI6Z3kqZDN-GjUGYk9vYXx7cA/w644" alt="摩卡咖啡">
+    </div>
+
+    <!-- 製作方法 -->
+    <div id="how-to-make" class="content">
+        <h2>如何製作美式咖啡</h2>
+        <p>美式咖啡的製作方式相對簡單，只需幾種食材即可在家中輕鬆完成：</p>
+        <ol>
+            <li><strong><p><p/>一杯美式濃縮咖啡由兩份義式濃縮咖啡加30到470毫升的熱水混和而成。對西歐人而言，因為熱水加入的分量很大，美式咖啡無論外觀還是口感都會顯得很淡。此外，咖啡的香氣也會因此受到些許破壞，並不能如傳統的義式咖啡般維持長久。</li>
+                </ul>
+            </li>
+        </ol>
+        <img src="https://iconicmen.com.my/wp-content/uploads/2021/07/americanoXXXX-1024x684.jpg"="製作美式咖啡">
+    </div>
+
+    <!-- 画廊 -->
+    <div id="gallery" class="content">
+        <h2>美式咖啡畫廊</h2>
+        <p>來看看一些美麗的美式咖啡圖片，感受它的魅力。</p>
+        <div class="gallery">
+            <img src="https://first-cafe.com/wp-content/uploads/2024/07/Americano-1-1-1024x768.webp" alt="摩卡咖啡1">
+            <img src="https://lh6.googleusercontent.com/proxy/vCUpqE7UKppgzzBsPGx5F3pjNUM9mup0NdD9AxIKv01SG9WajaRdJNP83jnCXc8wOosKBqKGmBlYJbHTE_nigQ3dJ6Pv0y9STkH6joo1aDgFh1kBZNI1nFFqVJAG_jcahXgbGdVArP9BvwTXMo19dzkF2v8NOXIy" alt="摩卡咖啡2">
+            <img src="https://www.oban.com.tw/upload/products/202010230033567wlji.png" alt="摩卡咖啡3">
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <footer>
+        <p>&copy; 2024 摩卡咖啡愛好者 | <a href="mailto:contact@moka.com">聯絡我們</a></p>
+    </footer>
+
+</body>
+</html>
